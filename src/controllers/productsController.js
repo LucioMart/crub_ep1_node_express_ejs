@@ -4,12 +4,14 @@ const path = require('path');
 const productsFilePath = path.join(__dirname, '../data/productsDataBase.json');
 const products = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));
 
-const toThousand = n => n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
+const toThousand = require('../utils/toThousand');
+
+const finalPrice = require('../utils/finalPrice')
 
 const controller = {
 	// Root - Show all products
 	index: (req, res) => {
-		// Do the magic
+		
 	},
 
 	// Detail - Detail from one product
@@ -17,7 +19,9 @@ const controller = {
 		let product = products.find(product => product.id === +req.params.id)
 		// res.send(product)
 		return res.render('detail', {
-			product
+			product,
+			toThousand,
+			finalPrice
 		})
 	},
 
