@@ -14,7 +14,11 @@ const controller = {
 
 	// Detail - Detail from one product
 	detail: (req, res) => {
-		// Do the magic
+		let product = products.find(product => product.id === +req.params.id)
+		// res.send(product)
+		return res.render('detail', {
+			product
+		})
 	},
 
 	// Create - Form to create
