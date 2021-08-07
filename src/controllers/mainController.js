@@ -1,3 +1,4 @@
+const { render } = require('ejs');
 const fs = require('fs');
 const path = require('path');
 
@@ -8,7 +9,7 @@ const toThousand = n => n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
 
 const controller = {
 	index: (req, res) => {
-		// Do the magic
+		render('index')
 	},
 	search: (req, res) => {
 		// Do the magic
