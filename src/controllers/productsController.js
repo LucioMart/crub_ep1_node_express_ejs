@@ -11,7 +11,11 @@ const finalPrice = require('../utils/finalPrice')
 const controller = {
 	// Root - Show all products
 	index: (req, res) => {
-		
+		return res.render('products', {
+			products, 
+			toThousand,
+			finalPrice
+		})
 	},
 
 	// Detail - Detail from one product
