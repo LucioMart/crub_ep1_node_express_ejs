@@ -62,7 +62,21 @@ const controller = {
 	},
 	// Update - Method to update
 	update: (req, res) => {
-		// Do the magic
+		const {name, price, discount, category, description} = req.body
+		
+		products.forEach(product => {
+			if(product.id === +req.params.id) {
+				product.name = name, 
+				product.price = +price,
+				product.discount = +discount,
+				product.category = category,
+				product.description = description
+			}
+		})
+
+		fs.writeFileSync(productsFilePath, JSON.stringify(products, null, 2), 'utf-8')
+		res.redirect('/products')
+		// res.send(products)
 	},
 
 	// Delete - Delete one product from DB
