@@ -64,7 +64,7 @@ const controller = {
 	update: (req, res) => {
 		const {name, price, discount, category, description} = req.body
 		
-		products.forEach(product => {
+		products.map(product => {
 			if(product.id === +req.params.id) {
 				product.name = name, 
 				product.price = +price,
