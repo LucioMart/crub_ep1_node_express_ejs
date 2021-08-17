@@ -1,6 +1,13 @@
 // ************ Require's ************
 const express = require('express');
 const router = express.Router();
+const multer = require('multer')
+
+const storage = multer.diskStorage({
+    destination: (req, file, callback) => {
+        callback( null, './public/images/products')
+    }
+})
 
 // ************ Controller Require ************
 const productsController = require('../controllers/productsController');
